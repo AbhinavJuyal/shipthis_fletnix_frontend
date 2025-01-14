@@ -1,0 +1,31 @@
+@if (record()) {
+  <a
+    [routerLink]="'/browse/' + record()?.id"
+    role="button"
+    class="block w-ful h-full overflow-hidden border-[1px] border-zinc-700 rounded-lg p-4"
+  >
+    <div
+      [title]="record()?.title"
+      class="font-bold text-lg whitespace-nowrap text-ellipsis mb-2 overflow-hidden"
+    >
+      {{ record()?.title }}
+    </div>
+    <div class="flex items-center flex-wrap gap-2">
+      <app-tag [text]="record()?.release_year" />
+      <app-tag [text]="record()?.duration" />
+      <app-tag [text]="record()?.rating" />
+      <app-tag [text]="record()?.type" />
+      <!-- @if ((record()?.cast ?? []).length) { -->
+      <!--   @for (member of (record()?.cast ?? "").split(","); track $index) { -->
+      <!--     <span -->
+      <!--       class="font-semibold text-xs bg-gray-600 text-white p-1 rounded-lg" -->
+      <!--     > -->
+      <!--       {{ member }} -->
+      <!--     </span> -->
+      <!--   } -->
+      <!-- } -->
+    </div>
+  </a>
+} @else {
+  <div>Loading</div>
+}

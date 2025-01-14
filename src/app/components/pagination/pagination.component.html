@@ -1,0 +1,58 @@
+<div
+  class="flex flex-col-reverse items-end lg:items-center gap-4 justify-between py-2"
+>
+  <div class="flex items-center gap-4 mx-auto" (click)="onPageChange($event)">
+    <button
+      type="button"
+      class="appearance-none focus:ring-0 bg-transparent bg-zinc-950 py-2 px-4 border-gray-600 border-[1px] rounded-xl active:border-white active:outline-none font-bold"
+      (click)="onPrev()"
+    >
+      <
+    </button>
+    @if (page() > 3) {
+      <div class="flex gap-1 justify-center items-center">
+        @for (i of [1, 2, 3]; track $index) {
+          <span class="bg-white rounded-lg p-[2px] block"></span>
+        }
+      </div>
+    }
+    @for (pageNumber of showPages(); track $index) {
+      <button
+        class="appearance-none focus:ring-0 bg-transparent bg-zinc-950 py-2 px-4 border-gray-800 border-[1px] rounded-xl active:border-white active:outline-none"
+        [ngClass]="{
+          'text-white': page() === pageNumber,
+          'text-gray-500': page() !== pageNumber,
+          'border-zinc-700 font-bold': page() === pageNumber,
+        }"
+        [id]="'pg-button-' + pageNumber"
+      >
+        {{ pageNumber }}
+      </button>
+    }
+    @if (totalPages() > 3) {
+      <div class="flex gap-1 justify-center items-center">
+        @for (i of [1, 2, 3]; track $index) {
+          <span class="bg-white rounded-lg p-[2px] block"></span>
+        }
+      </div>
+    }
+    <button
+      type="button"
+      class="appearance-none focus:ring-0 bg-transparent bg-zinc-950 py-2 px-4 border-gray-600 border-[1px] rounded-xl active:border-white active:outline-none font-bold"
+      (click)="onNext()"
+    >
+      >
+    </button>
+  </div>
+  <div class="flex items-center gap-2">
+    <select
+      class="w-20 appearance-none focus:ring-0 bg-transparent bg-zinc-950 text-white p-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+      (change)="onPageSizeChange($event)"
+    >
+      @for (pageSize of pageSizeOptions; track $index) {
+        <option [value]="pageSize">{{ pageSize }}</option>
+      }
+    </select>
+    <span class="font-semibold">records</span>
+  </div>
+</div>

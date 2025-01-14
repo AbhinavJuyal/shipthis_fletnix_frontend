@@ -1,0 +1,18 @@
+@if (label() && text()) {
+  <div class="flex flex-col text-white gap-2 py-4">
+    <span class="text-sm">{{ label() }}</span>
+    <span
+      [title]="text()"
+      class="w-max max-w-44 overflow-hidden whitespace-nowrap text-ellipsis font-semibold text-md bg-gray-600 text-white p-1 rounded-lg"
+    >
+      {{ text() }}
+    </span>
+  </div>
+} @else if (text()) {
+  <span
+    [title]="text()"
+    class="w-min font-semibold text-md bg-gray-600 text-white p-1 rounded-lg"
+  >
+    {{ text() }}
+  </span>
+}

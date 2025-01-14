@@ -1,0 +1,17 @@
+<div class="w-full flex gap-4">
+  <input
+    type="text"
+    placeholder="Search for Movies/TV Shows"
+    class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+    (input)="debouncedSearch($event)"
+  />
+  <select
+    class="w-20 appearance-none focus:ring-0 bg-transparent bg-zinc-950 text-white p-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+    (change)="onTypeChange($event)"
+  >
+    <option value="">All</option>
+    <option value="Movie">Movies</option>
+    <option value="TV Show">TV Shows</option>
+    <option value="Cast">Cast</option>
+  </select>
+</div>

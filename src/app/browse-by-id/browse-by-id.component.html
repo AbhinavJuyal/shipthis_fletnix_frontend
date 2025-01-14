@@ -1,0 +1,56 @@
+<main class="w-full h-screen bg-zinc-950 text-white overflow-hidden">
+  @if (loading()) {
+    <div
+      class="w-full h-full flex justify-center items-center text-lg text-white"
+    >
+      Loading..
+    </div>
+  } @else if (record()) {
+    <div class="px-8 pt-10">
+      <h2 class="font-semibold text-3xl mb-6">{{ record()?.title }}</h2>
+      <div class="grid grid-cols-2">
+        @if (record()?.show_id) {
+          <app-tag label="Show Id" [text]="record()?.show_id" />
+        }
+        @if (record()?.type) {
+          <app-tag label="Type" [text]="record()?.type" />
+        }
+        @if (record()?.director) {
+          <app-tag label="Director" [text]="record()?.director" />
+        }
+        @if (record()?.cast) {
+          <app-tag label="Cast" [text]="record()?.cast" />
+        }
+        @if (record()?.country) {
+          <app-tag label="Country" [text]="record()?.country" />
+        }
+        @if (record()?.date_added) {
+          <app-tag label="Date Added" [text]="record()?.date_added" />
+        }
+        @if (record()?.release_year) {
+          <app-tag label="Release Year" [text]="record()?.release_year" />
+        }
+        @if (record()?.rating) {
+          <app-tag label="Rating" [text]="record()?.rating" />
+        }
+        @if (record()?.duration) {
+          <app-tag label="Duration" [text]="record()?.duration" />
+        }
+        @if (record()?.listed_in) {
+          <app-tag label="Listed In" [text]="record()?.listed_in" />
+        }
+        @if (record()?.description) {
+          <app-tag label="Description" [text]="record()?.description" />
+        }
+      </div>
+      <div class="flex items-center gap-6 justify-end">
+        <a
+          class="inline-block appearance-none bg-white rounded-md py-2 px-4 mt-6 text-black"
+          routerLink="/browse"
+        >
+          Back
+        </a>
+      </div>
+    </div>
+  }
+</main>

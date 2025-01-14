@@ -4,10 +4,18 @@
     <p class="text-gray-400 text-sm pb-2">
       Enter your details to create your account
     </p>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="flex flex-col text-white gap-2 py-4">
-        <label class="text-sm" for="email">Email</label>
+        <label
+          [ngClass]="{
+            'text-red-800': emailError,
+          }"
+          class="text-sm"
+          for="email"
+          >Email</label
+        >
         <input
+          formControlName="email"
           class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
           placeholder="m@example.com"
           id="email"
@@ -15,18 +23,57 @@
           type="email"
           required
         />
+        @if (emailError) {
+          <p class="text-sm text-red-800">Please enter a valid email</p>
+        }
       </div>
 
       <div class="flex flex-col text-white gap-2 py-4">
-        <label class="text-sm" for="email">Password</label>
+        <label
+          [ngClass]="{
+            'text-red-800': passwordError,
+          }"
+          class="text-sm"
+          for="password"
+          >Password</label
+        >
         <input
+          formControlName="password"
           class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
           placeholder="password"
-          id="email"
-          name="email"
-          type="email"
+          id="password"
+          name="password"
+          type="password"
           required
         />
+        @if (passwordError) {
+          <p class="text-sm text-red-800">
+            "Invalid password. Must be at least 8 characters.
+          </p>
+        }
+      </div>
+
+      <div class="flex flex-col text-white gap-2 py-4">
+        <label
+          [ngClass]="{
+            'text-red-800': ageError,
+          }"
+          class="text-sm"
+          for="age"
+          >Age</label
+        >
+        <input
+          formControlName="age"
+          class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+          placeholder="age"
+          id="age"
+          name="age"
+          type="number"
+          required
+        />
+        @if (ageError) {
+          <p class="text-sm text-red-800">Invalid age. Minimum age is 12.</p>
+        }
       </div>
 
       <button

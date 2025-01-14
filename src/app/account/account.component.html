@@ -1,0 +1,47 @@
+<main class="w-full h-screen bg-zinc-950 text-white overflow-hidden px-8 pt-10">
+  <h2 class="font-semibold text-3xl mb-6">Your Account</h2>
+  <div class="flex flex-col text-white gap-2 py-4">
+    <span class="text-sm">Name</span>
+    <input
+      class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+      [value]="user.fullname"
+      readOnly
+      disabled
+    />
+  </div>
+  <div class="flex flex-col text-white gap-2 py-4">
+    <span class="text-sm">Email</span>
+    <input
+      class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+      [value]="user.email"
+      readOnly
+      disabled
+    />
+  </div>
+
+  <div class="flex flex-col text-white gap-2 py-4">
+    <span class="text-sm">Age</span>
+    <input
+      class="appearance-none focus:ring-0 p-0 bg-transparent bg-zinc-950 text-white w-full px-2 py-2 border-gray-800 border-[1px] rounded-md active:border-white active:outline-none"
+      [value]="user.age"
+      readOnly
+      disabled
+    />
+  </div>
+
+  <div class="flex items-center gap-6 justify-end">
+    <a
+      class="inline-block appearance-none bg-white rounded-md py-2 px-4 mt-6 text-black"
+      routerLink="/browse"
+    >
+      Back
+    </a>
+    <button
+      type="button"
+      (click)="logout()"
+      class="inline-block appearance-none bg-transparent rounded-md py-2 px-4 mt-6 text-red-800 font-semibold"
+    >
+      Logout
+    </button>
+  </div>
+</main>
