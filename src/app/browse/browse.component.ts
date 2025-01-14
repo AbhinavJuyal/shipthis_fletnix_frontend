@@ -75,4 +75,12 @@ export class BrowseComponent implements OnInit {
         this.loading.set(false);
       });
   }
+
+  onSearchChange() {
+    this.page.set(1);
+  }
+
+  onTypeChange() {
+    this.page.set(1);
+  }
 }
