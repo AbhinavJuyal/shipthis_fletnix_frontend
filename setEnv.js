@@ -7,8 +7,8 @@ require("dotenv").config({ path: ".env" });
 const isProd = process.env.NODE_ENV === "production";
 
 const envFile = `export const environment = {
-    production: ${isProd}
-    apiUrl: '${process.env.API_URL}',
+  production: ${isProd}
+  apiUrl: '${process.env.API_URL}',
 };
 `;
 const targetPath = path.join(
@@ -24,7 +24,7 @@ fs.writeFile(targetPath, envFile, (err) => {
   } else {
     console.log(
       successColor,
-      `${checkSign} Successfully generated environment.development.ts`,
+      `${checkSign} Successfully generated ${isProd ? "environment.ts" : "environment.development.ts"}`,
     );
   }
 });
