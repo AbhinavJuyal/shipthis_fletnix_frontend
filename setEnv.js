@@ -7,7 +7,7 @@ require("dotenv").config({ path: ".env" });
 const isProd = process.env.NODE_ENV === "production";
 
 const envFile = `export const environment = {
-  production: ${isProd}
+  production: ${isProd},
   apiUrl: '${process.env.API_URL}',
 };
 `;
